@@ -5,11 +5,11 @@ const Order = (props) => {
   return (
     <div className={css.Order}>
       <p>
-        Location: {props.order.location.name} | {props.order.location.street} |{" "}
-        {props.order.location.city}
+        Location: {props.orders.location.name} | {props.orders.location.street}{" "}
+        | {props.orders.location.city}
       </p>
       <p>
-        Value: <strong>{props.order.dun}$</strong>
+        Value: <strong>{props.orders.dun}$</strong>
       </p>
     </div>
   );

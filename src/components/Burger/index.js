@@ -27,7 +27,7 @@ const Burger = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    orts: state.ingredients,
+    orts: state.BurgerReducer.ingredients,
   };
 };
 

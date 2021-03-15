@@ -37,7 +37,7 @@ class ShippingPage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { price: state.totalPrice };
+  return { price: state.BurgerReducer.totalPrice };
 };
 
 export default connect(mapStateToProps)(ShippingPage);

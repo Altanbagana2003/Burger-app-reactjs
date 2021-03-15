@@ -27,9 +27,9 @@ const OrderSummary = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    ingredients: state.ingredients,
-    ingredientNames: state.INGREDIENT_NAME,
-    price: state.totalPrice,
+    ingredients: state.BurgerReducer.ingredients,
+    ingredientNames: state.BurgerReducer.INGREDIENT_NAME,
+    price: state.BurgerReducer.totalPrice,
   };
 };
 

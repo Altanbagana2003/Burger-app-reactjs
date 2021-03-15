@@ -4,14 +4,20 @@ import "./index.css";
 import App from "./pages/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import BurgerReducer from "./Redux/reducer/BurgerReducer";
+import orderReducer from "./Redux/reducer/orderReducer";
+import signupReducer from "./Redux/reducer/signupLoginReducer";
+import thunk from "redux-thunk";
 
 const logger = (store) => {
   return (next) => {
     return (action) => {
+      console.log("MyLoggerMiddleware: Dispatching ==> ", action);
+      console.log("MyLoggerMiddleware: State BEFORE : ", store.getState());
       const result = next(action);
+      console.log("MyLoggerMiddleware: State AFTER : ", store.getState());
       return result;
     };
   };
@@ -19,9 +25,17 @@ const logger = (store) => {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(
+const reducers = combineReducers({
   BurgerReducer,
-  composeEnhancers(applyMiddleware(logger))
+  orderReducer,
+  signupReducer,
+});
+
+const middlewares = [logger, thunk];
+
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(...middlewares))
 );
 
 ReactDOM.render(

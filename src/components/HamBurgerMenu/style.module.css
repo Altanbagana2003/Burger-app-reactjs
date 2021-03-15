@@ -1,14 +1,20 @@
 .HamBurgerMenu {
-    width: 40px;
-    height: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-    padding: 10px 0px;
-    box-sizing: border-box;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  padding: 10px 0px;
+  box-sizing: border-box;
 }
 
 .HamBurgerMenu div {
-    background-color: white;
-    height: 3px;
+  background-color: white;
+  height: 3px;
+}
+
+@media (min-width: 600px) {
+  .HamBurgerMenu {
+    display: none;
+  }
 }
